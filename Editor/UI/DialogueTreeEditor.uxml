@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/NodeEditor/Editor/UI/DialogueTreeEditor.uss?fileID=7433441132597879392&amp;guid=a17e661d1e5e7fd4e89434456676e119&amp;type=3#DialogueTreeEditor" />
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 140px; flex-direction: row;">
+        <ui:VisualElement name="Left" style="background-color: rgba(0, 0, 0, 0); flex-direction: column; width: -536px; flex-grow: 0.5;">
+            <ui:Label tabindex="-1" text="Inspector" display-tooltip-when-elided="true" name="Inspector" style="-unity-font: url(&apos;project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=8d8370af25aa29340ac2267df7994361&amp;type=3#NotInter-Regular&apos;); font-size: 15px; -unity-font-style: bold; color: rgb(255, 255, 255);" />
+            <PKNodeSystem.InspectorViewer name="InspectorViewer" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: column;">
+            <ui:Label tabindex="-1" text="NodeTreeViewer" display-tooltip-when-elided="true" name="NodeTreeViewer" style="-unity-font: url(&apos;project://database/Assets/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=8d8370af25aa29340ac2267df7994361&amp;type=3#NotInter-Regular&apos;); -unity-font-style: bold; font-size: 15px; color: rgb(255, 255, 255); flex-grow: 0; flex-shrink: 1;" />
+            <PKNodeSystem.NodeTreeViewer focusable="true" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,11 @@
+NodeView #title{
+    background-color: green;
+}
+
+NodeView #contents{
+    flex-direction: row;
+}
+
+NodeView #top{
+    flex-direction: column;
+}
