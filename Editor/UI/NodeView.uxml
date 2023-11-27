@@ -5,6 +5,7 @@
         <ui:VisualElement name="Divder" />
         <ui:VisualElement name="Title">
             <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="title-label" />
+            <ui:TextField picking-mode="Ignore" value="filler text" name="Desc" password="false" style="font-size: 12px; -unity-text-align: upper-center;" />
         </ui:VisualElement>
         <ui:VisualElement name="Divder" />
         <ui:VisualElement name="output" />
