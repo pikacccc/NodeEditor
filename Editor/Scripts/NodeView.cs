@@ -14,7 +14,7 @@ namespace PKNodeSystem
         public Port input;
         public Port output;
 
-        public NodeView(NodeBase node)
+        public NodeView(NodeBase node) : base("Assets/NodeEditor/Editor/UI/NodeView.uxml")
         {
             this.node = node;
             this.title = node.name;
@@ -22,9 +22,6 @@ namespace PKNodeSystem
             this.viewDataKey = node.guid;
             style.left = node.pos.x;
             style.top = node.pos.y;
-            StyleSheet UssStyle =
-                AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/NodeEditor/Editor/UI/NodeUss.uss");
-            styleSheets.Add(UssStyle);
             CreateInputPorts();
             CreateOutputPorts();
             this.RefreshExpandedState();
@@ -35,7 +32,7 @@ namespace PKNodeSystem
 
         private void CreateInputPorts()
         {
-            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
+            input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
             if (input != null)
             {
                 // 将端口名设置为空
@@ -47,7 +44,7 @@ namespace PKNodeSystem
 
         private void CreateOutputPorts()
         {
-            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
             if (output != null)
             {
                 output.portName = "";

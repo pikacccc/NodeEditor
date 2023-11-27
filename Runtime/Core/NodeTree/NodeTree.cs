@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -91,6 +92,59 @@ namespace PKNodeSystem
             pNodeNode.children.Add(cNodeNode);
             AssetDatabase.SaveAssets();
         }
+
+        
+        //自定义数据结构可以转换成节点编辑工具的数据结构，参考如下
+        // [Button("loadFromStrategyTree")]
+        // public void loadFromStrategyTree(StrategyTreeGen.StrategyTreeStore tree)
+        // {
+        //     this.nodes.Clear();
+        //     foreach (var node in tree.Nodes)
+        //     {
+        //         BranchDialogue tmpNode = new BranchDialogue();
+        //         tmpNode.guid = GUID.Generate().ToString();
+        //         tmpNode.name = node.ID.ToString();
+        //         tmpNode.pos = node.Pos;
+        //         tmpNode.description = node.ID.ToString();
+        //         nodes.Add(tmpNode);
+        //         AssetDatabase.AddObjectToAsset(tmpNode, this);
+        //     }
+        //     
+        //     foreach (var node in tree.Nodes)
+        //     {
+        //         BranchDialogue tmpNode = nodes.Find(s => s.name == node.ID.ToString()) as BranchDialogue;
+        //         foreach (var childIndex in node.ChildIndex)
+        //         {
+        //             tmpNode.children.Add(nodes[childIndex]);
+        //         }
+        //     }
+        //     AssetDatabase.SaveAssets();
+        // }
+        // [Button("loadFromWorld")]
+        // public void loadFromWorld(WorldGen.WorldGenResult res)
+        // {
+        //     this.nodes.Clear();
+        //     foreach (var node in res.Rooms)
+        //     {
+        //         BranchDialogue tmpNode = new BranchDialogue();
+        //         tmpNode.guid = GUID.Generate().ToString();
+        //         tmpNode.name = node.Id.ToString();
+        //         tmpNode.pos = new Vector2(node.X*100,node.Y*100);
+        //         tmpNode.description = node.Id.ToString();
+        //         nodes.Add(tmpNode);
+        //         AssetDatabase.AddObjectToAsset(tmpNode, this);
+        //     }
+        //     
+        //     foreach (var node in res.Rooms)
+        //     {
+        //         BranchDialogue tmpNode = nodes.Find(s => s.name == node.Id.ToString()) as BranchDialogue;
+        //         foreach (var childIndex in node.ChildrenId)
+        //         {
+        //             tmpNode.children.Add(nodes.Find(s=>s.name==childIndex.ToString()));
+        //         }
+        //     }
+        //     AssetDatabase.SaveAssets();
+        // }
 #endif
     }
 }

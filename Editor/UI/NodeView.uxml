@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/NodeEditor/Editor/UI/NodeView.uss?fileID=7433441132597879392&amp;guid=07cae92f60fb45641825ecf428dfa746&amp;type=3#NodeView" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(56, 56, 56); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); width: 167px;">
+        <ui:VisualElement name="Title" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="title-label" style="background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255); flex-direction: column; justify-content: flex-start; align-items: stretch; -unity-background-scale-mode: stretch-to-fill; font-size: 15px; -unity-text-align: upper-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Divder" style="flex-grow: 0; background-color: rgb(255, 255, 255); flex-shrink: 0; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;" />
+        <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="input" />
+            <ui:VisualElement name="output" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
