@@ -28,11 +28,27 @@ namespace PKNodeSystem
             this.RefreshPorts();
             this.showInMiniMap = true;
             this.elementTypeColor = Color.magenta;
+            this.SetNodeClass();
+        }
+
+        public void SetNodeClass()
+        {
+            if (node is SingleNode)
+            {
+                this.AddToClassList("Single");
+            }
+            else if (node is CompositeNode)
+            {
+                this.AddToClassList("Branch");
+            }
         }
 
         private void CreateInputPorts()
         {
-            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
+            if (node is SingleNode)
+                input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
+            else if (node is CompositeNode)
+                input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
             if (input != null)
             {
                 // 将端口名设置为空
@@ -45,7 +61,11 @@ namespace PKNodeSystem
 
         private void CreateOutputPorts()
         {
-            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            if (node is SingleNode)
+                output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
+            else if (node is CompositeNode)
+                output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
+
             if (output != null)
             {
                 output.portName = "";
