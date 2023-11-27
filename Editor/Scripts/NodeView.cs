@@ -32,11 +32,12 @@ namespace PKNodeSystem
 
         private void CreateInputPorts()
         {
-            input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
+            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Multi, typeof(bool));
             if (input != null)
             {
                 // 将端口名设置为空
                 input.portName = "";
+                input.style.flexDirection = FlexDirection.Column;
                 input.showInMiniMap = true;
                 inputContainer.Add(input);
             }
@@ -44,11 +45,12 @@ namespace PKNodeSystem
 
         private void CreateOutputPorts()
         {
-            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Multi, typeof(bool));
+            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
             if (output != null)
             {
                 output.portName = "";
-                input.showInMiniMap = true;
+                output.style.flexDirection = FlexDirection.ColumnReverse;
+                output.showInMiniMap = true;
                 outputContainer.Add(output);
             }
         }
