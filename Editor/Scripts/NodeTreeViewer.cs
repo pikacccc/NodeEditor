@@ -29,6 +29,8 @@ namespace PKNodeSystem
             StyleSheet style =
                 AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/NodeEditor/Editor/UI/NodeTreeViewerUss.uss");
             styleSheets.Add(style);
+
+            Undo.undoRedoPerformed += OnUndoRedo;
         }
 
         // NodeTreeViewer视图中添加右键节点创建栏
@@ -42,6 +44,12 @@ namespace PKNodeSystem
                     evt.menu.AppendAction($"{type.Name}", (a) => CreateNode(type));
                 }
             }
+        }
+
+        private void OnUndoRedo()
+        {
+            PopulateView(tree);
+            AssetDatabase.SaveAssets();
         }
 
         void CreateNode(System.Type type)

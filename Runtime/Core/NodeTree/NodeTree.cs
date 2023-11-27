@@ -37,6 +37,7 @@ namespace PKNodeSystem
 #if UNITY_EDITOR
         public T CreateNode<T>(System.Type type) where T : NodeBase
         {
+            Undo.RecordObject(this,"NodeTree (CreateNode)");
             T node = ScriptableObject.CreateInstance<T>();
             node.name = type.Name;
             node.guid = GUID.Generate().ToString();
@@ -45,13 +46,14 @@ namespace PKNodeSystem
             {
                 AssetDatabase.AddObjectToAsset(node, this);
             }
-
+            Undo.RegisterCreatedObjectUndo(node, "NodeTree (CreateNode)");
             AssetDatabase.SaveAssets();
             return node;
         }
 
         public NodeBase CreateNode(System.Type type)
         {
+            Undo.RecordObject(this,"NodeTree (CreateNode)");
             NodeBase node = ScriptableObject.CreateInstance(type) as NodeBase;
             node.name = type.Name;
             node.guid = GUID.Generate().ToString();
@@ -61,36 +63,43 @@ namespace PKNodeSystem
                 AssetDatabase.AddObjectToAsset(node, this);
             }
 
+            Undo.RegisterCreatedObjectUndo(node, "NodeTree (CreateNode)");
             AssetDatabase.SaveAssets();
             return node;
         }
 
         public T DeleteNode<T>(T node) where T : NodeBase
         {
+            Undo.RecordObject(this,"NodeTree (DeleteNode)");
             nodes.Remove(node);
-            AssetDatabase.RemoveObjectFromAsset(node);
+            Undo.DestroyObjectImmediate(node);
             AssetDatabase.SaveAssets();
             return node;
         }
 
         public NodeBase DeleteNode(NodeBase node)
         {
+            Undo.RecordObject(this,"NodeTree (DeleteNode)");
             nodes.Remove(node);
-            AssetDatabase.RemoveObjectFromAsset(node);
+            Undo.DestroyObjectImmediate(node);
             AssetDatabase.SaveAssets();
             return node;
         }
 
         public void RemoveChild(NodeBase pNodeNode, NodeBase cNodeNode)
         {
+            Undo.RecordObject(pNodeNode,"NodeTree (RemoveChild)");
             pNodeNode.children.Remove(cNodeNode);
             AssetDatabase.SaveAssets();
+            EditorUtility.SetDirty(pNodeNode);
         }
 
         public void AddChild(NodeBase pNodeNode, NodeBase cNodeNode)
         {
+            Undo.RecordObject(pNodeNode,"NodeTree (RemoveChild)");
             pNodeNode.children.Add(cNodeNode);
             AssetDatabase.SaveAssets();
+            EditorUtility.SetDirty(pNodeNode);
         }
 
         

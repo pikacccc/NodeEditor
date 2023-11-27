@@ -78,6 +78,7 @@ namespace PKNodeSystem
         // 设置节点在节点树视图中的位置
         public override void SetPosition(Rect newPos)
         {
+            Undo.RecordObject(node,"NodeTree (SetPosition)");
             // 将视图中节点位置设置为最新位置newPos
             base.SetPosition(newPos);
             // 将最新位置记录到运行时节点树中持久化存储
