@@ -32,7 +32,11 @@ namespace PKNodeSystem
             this.elementTypeColor = Color.magenta;
             this.SetNodeClass();
             this.Q<TextField>("Desc").value = this.node.description;
-            this.Q<TextField>("Desc").RegisterValueChangedCallback(s => { this.node.description = s.newValue; });
+            this.Q<TextField>("Desc").RegisterValueChangedCallback(s =>
+            {
+                Undo.RecordObject( this.node,"ChangeValue");
+                this.node.description = s.newValue;
+            });
         }
 
         public void SetNodeClass()

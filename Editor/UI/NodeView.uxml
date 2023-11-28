@@ -1,13 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/NodeEditor/Editor/UI/NodeView.uss?fileID=7433441132597879392&amp;guid=07cae92f60fb45641825ecf428dfa746&amp;type=3#NodeView" />
-    <ui:VisualElement name="BackGround">
-        <ui:VisualElement name="input" />
+    <ui:VisualElement name="BackGround" style="width: 183px;">
+        <ui:VisualElement name="input" style="flex-grow: 0;" />
         <ui:VisualElement name="Divder" />
-        <ui:VisualElement name="Title">
-            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="title-label" />
-            <ui:TextField picking-mode="Ignore" value="filler text" name="Desc" password="false" style="font-size: 12px; -unity-text-align: upper-center;" />
+        <ui:VisualElement name="Title" style="opacity: 1; align-items: center; flex-direction: column; -unity-text-align: middle-center; padding-left: -15px; padding-right: -15px; padding-top: -15px; padding-bottom: -15px;">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="title-label" style="height: 10px; -unity-text-align: middle-left; flex-shrink: 1; flex-grow: 1; white-space: nowrap;" />
         </ui:VisualElement>
+        <ui:EnumField label="Speaker" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" value="Center" include-obsolete-values="true" style="margin-left: 0; margin-right: 0; font-size: 12px; -unity-background-scale-mode: scale-and-crop; flex-shrink: 1; flex-grow: 0.3; opacity: 1; overflow: hidden; align-items: flex-start; flex-direction: column; padding-left: 5px; padding-right: 5px; padding-top: 5px; padding-bottom: 5px;" />
+        <ui:TextField picking-mode="Ignore" value="filler text" name="Desc" password="false" style="font-size: 12px; -unity-text-align: middle-left; flex-grow: 0.5; flex-shrink: 1; white-space: normal; text-overflow: ellipsis;" />
         <ui:VisualElement name="Divder" />
-        <ui:VisualElement name="output" />
+        <ui:VisualElement name="output" style="flex-shrink: 1; flex-grow: 0;" />
     </ui:VisualElement>
 </ui:UXML>
